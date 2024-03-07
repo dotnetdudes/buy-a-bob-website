@@ -24,21 +24,21 @@ const ThemeSwitch = () => {
         <IconButton
           aria-label="Select Dark Theme"
           color="inherit"
-          size="medium"
+          size="small"
           onClick={handleThemeChange}
           value="dark"
         >
-          <Brightness4Icon fontSize="large" />
+          <Brightness4Icon fontSize="small" />
         </IconButton>
       ) : (
         <IconButton
           aria-label="Select Light Theme"
           color="inherit"
-          size="medium"
+          size="small"
           onClick={handleThemeChange}
           value="light"
         >
-          <Brightness7Icon fontSize="large" />
+          <Brightness7Icon fontSize="small" />
         </IconButton>
       )}
     </>

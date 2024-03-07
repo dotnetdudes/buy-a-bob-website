@@ -1,6 +1,10 @@
 const options = {
   palette: {
-    mode: "light",
+    // contrastThreshold: 4.5,
+    mode: 'light',
+    primary: {
+      main: '#171717',
+    },
   },
 };
 

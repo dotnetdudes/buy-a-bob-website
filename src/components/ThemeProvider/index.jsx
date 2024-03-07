@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 export const ThemeProvider = ({ children }) => {
   const theme = useSelector(selectTheme);
+  console.log(theme);
   return (
     <OriginalThemeProvider theme={theme}>{children}</OriginalThemeProvider>
   );

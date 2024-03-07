@@ -1,7 +1,8 @@
 import { styled } from "@mui/material/styles";
 
 const Item = styled("div")(({ theme }) => ({
-  padding: theme.spacing(2),
+  paddingLeft: theme.spacing(2),
+  paddingRight: theme.spacing(2),
 }));
 
 const GridItem = ({ children }) => {

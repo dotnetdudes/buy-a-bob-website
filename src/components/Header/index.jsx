@@ -2,11 +2,10 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Logo from '../../images/logo.png';
 import { styled } from "@mui/material/styles";
-import Typography from "@mui/material/Typography";
-import Button from '@mui/material/Button';
-import { NavLink, Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink } from 'react-router-dom';
 import Link from '@mui/material/Link';
 import ThemeSwitch from '../ThemeSwitch';
+import CartIcon from '../../features/cart/components/CartIcon';
 
 const LogoLink = styled(Link)({
   display: 'flex',
@@ -17,35 +16,24 @@ const LogoLink = styled(Link)({
 });
 
 const LogoImg = styled('img')(() => ({ 
-  width: 86,
-  height: 60,
+  width: 312,
+  height: 70,
   marginRight: 10,
 
   "@media (max-width:640px)": {
-    width: 43,
-    height: 30,
+    width: 177,
+    height: 40,
   },
-}));
-
-const HeaderLink = styled(Button)(({ theme }) => ({
-  marginLeft: theme.spacing(1),
-  textDecoration: 'none',
-  color: 'inherit',
 }));
 
 const Header = () => {
   return (
-    <AppBar position="static">
-      <Toolbar>
+    <AppBar position="static" sx={{ bgcolor: "#171717" }}>
+      <Toolbar sx={{ bgcolor: "#171717" }}>
         <LogoLink component={RouterLink} to="/">
           <LogoImg src={Logo} alt="Buy a Bob logo" />
-          <Typography variant="h6" component="div" sx={{ display: { xs: 'none', sm: 'flex' } }}>IOD Blog Team</Typography>
         </LogoLink>
-        <nav>
-          <HeaderLink component={NavLink} to="/">Home</HeaderLink>
-          <HeaderLink component={NavLink} to="/users">Users</HeaderLink>
-          <HeaderLink component={NavLink} to="/posts">Blog</HeaderLink>
-        </nav>
+        <CartIcon />
         <ThemeSwitch />
       </Toolbar>
     </AppBar>
