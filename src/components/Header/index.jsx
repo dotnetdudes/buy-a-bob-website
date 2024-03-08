@@ -28,7 +28,7 @@ const LogoImg = styled('img')(() => ({
 
 const Header = () => {
   return (
-    <AppBar position="static" sx={{ bgcolor: "#171717" }}>
+    <AppBar position="static">
       <Toolbar sx={{ bgcolor: "#171717" }}>
         <LogoLink component={RouterLink} to="/">
           <LogoImg src={Logo} alt="Buy a Bob logo" />
