@@ -1,4 +1,4 @@
-import FullGallery from "../../features/coverflow/FullGallery";
+import FullGallery from "../../features/gallery/FullGallery";
 import Grid from "@mui/material/Grid";
 
 const Gallery = () => {

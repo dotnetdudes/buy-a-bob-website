@@ -1,4 +1,4 @@
-import SwipeGallery from "../../features/coverflow/SwipeGallery";
+import SwipeGallery from "../../features/gallery/SwipeGallery";
 import Grid from '@mui/material/Grid';
 import GridItemCenter from "../../components/GridItemCenter";
 import HomeBob from "../../components/HomeBob";

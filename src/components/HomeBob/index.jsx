@@ -17,7 +17,7 @@ const HomeBob = () => {
         />
         <CardContent>
             <p>
-            This is a card component that is used in the Home page.
+            This is a card component that is used in the Home page for content.
             </p>
         </CardContent>
         <CardActions>
