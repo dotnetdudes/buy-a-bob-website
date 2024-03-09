@@ -1,7 +1,7 @@
 import GalleryItem from "./GalleryItem";
-import IconButton from "@mui/material/IconButton";
-import InfoIcon from "@mui/icons-material/Info";
 import Grid from "@mui/material/Grid";
+import ToggleOrientation from "../ToggleOrientation";
+import GridItem from "../../../components/GridItem";
 
 const itemData = [
   {
@@ -95,16 +95,12 @@ const Gallery = () => {
 function FullGallery() {
   return (
     <Grid container>
-        <Grid item xs={12}>
-            <IconButton
-                aria-label="Go to Gallery"
-                color="inherit"
-                size="small"
-                value="dark"
-            >
-                <InfoIcon fontSize="small" />
-            </IconButton>
-        </Grid>
+      <Grid item xs={12} sx={{ mb: 2 }}>
+        <GridItem>
+          
+          <ToggleOrientation />
+        </GridItem>
+      </Grid>
       <Grid item xs={12}>
         <Gallery />
       </Grid>
