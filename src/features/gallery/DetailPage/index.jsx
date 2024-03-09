@@ -10,10 +10,12 @@ import HouseIcon from "@mui/icons-material/House";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 const DetailPage = () => {
   // const { id } = useParams();
   // const selectedItem = useSelector(selectProductById(id));
+  const handle = useFullScreenHandle();
 
   const selectedItem = {
     Id: 1,
@@ -36,11 +38,14 @@ const DetailPage = () => {
   return (
     <Grid container>
       <Grid item xs={12} md={4}>
+      <FullScreen handle={handle}>
         <img
           src="https://source.unsplash.com/random"
           alt="random"
           className="detail-image"
+          onClick={handle.enter}
         />
+        </FullScreen>
       </Grid>
       <Grid item xs={12} sm={6} md={4}>
         <GridItem>
