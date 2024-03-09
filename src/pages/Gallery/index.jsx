@@ -1,8 +1,13 @@
+import FullGallery from "../../features/coverflow/FullGallery";
+import Grid from "@mui/material/Grid";
+
 const Gallery = () => {
   return (
-    <div>
-      <h1>Gallery</h1>
-    </div>
+    <Grid container>
+      <Grid item xs={12}>
+        <FullGallery />
+      </Grid>
+    </Grid>
   );
 };
 

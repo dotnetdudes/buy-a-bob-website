@@ -2,6 +2,7 @@ import SwipeGallery from "../../features/coverflow/SwipeGallery";
 import Grid from '@mui/material/Grid';
 import GridItemCenter from "../../components/GridItemCenter";
 import HomeBob from "../../components/HomeBob";
+import HomeBobBio from "../../components/HomeBobBio";
 
 const Home = () => {
   return (
@@ -19,7 +20,7 @@ const Home = () => {
       <GridItemCenter><HomeBob /></GridItemCenter>
       </Grid>
       <Grid item xs={12} sm={6} md={3}>
-      <GridItemCenter><HomeBob /></GridItemCenter>
+      <GridItemCenter><HomeBobBio /></GridItemCenter>
       </Grid>
     </Grid>
   );
