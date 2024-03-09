@@ -39,21 +39,21 @@ class Product {
 
     toJson() {
         return {
-            id: this.Id,
-            name: this.Name,
-            price: this.Price,
-            description: this.Description,
-            imageUrl: this.ImageUrl,
-            weight: this.Weight,
-            width: this.Width,
-            depth: this.Depth,
-            height: this.Height,
-            quantity: this.Quantity,
-            created: this.Created,
-            updated: this.Updated,
-            isSold: this.IsSold,
-            soldDate: this.SoldDate,
-            deleted: this.Deleted,
+            id: this.id,
+            name: this.name,
+            price: this.price,
+            description: this.description,
+            imageUrl: this.imageUrl,
+            weight: this.weight,
+            width: this.width,
+            depth: this.depth,
+            height: this.height,
+            quantity: this.quantity,
+            created: this.created,
+            updated: this.updated,
+            isSold: this.isSold,
+            soldDate: this.soldDate,
+            deleted: this.deleted,
         };
     }
 
