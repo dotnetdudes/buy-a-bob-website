@@ -4,6 +4,7 @@ import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import Tooltip from "@mui/material/Tooltip";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -17,11 +18,13 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 const CartIcon = () => {
   const cartCount = useSelector(getCartCount);
   return (
-    <IconButton aria-label="cart" color="inherit" size="small">
-      <StyledBadge badgeContent={cartCount} color="secondary">
-        <ShoppingCartIcon />
-      </StyledBadge>
-    </IconButton>
+    <Tooltip title="Go to Cart" placement="bottom">
+      <IconButton aria-label="cart" color="inherit" size="small">
+        <StyledBadge badgeContent={cartCount} color="secondary">
+          <ShoppingCartIcon />
+        </StyledBadge>
+      </IconButton>
+    </Tooltip>
   );
 };
 
