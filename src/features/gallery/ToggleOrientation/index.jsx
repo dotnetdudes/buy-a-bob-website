@@ -3,13 +3,16 @@ import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import IconButton from "@mui/material/IconButton";
 import HelpIcon from "@mui/icons-material/Help";
 import Tooltip from "@mui/material/Tooltip";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleOrientation } from "../slice";
+import { selectOrientation } from "../slice/selectors";
 
 const ToggleOrientation = () => {
-  //const dispatch = useDispatch();
-  //const orientation = useSelector(selectOrientation);
+  const dispatch = useDispatch();
+  const orientation = useSelector(selectOrientation);
 
   const handleToggle = () => {
-    //dispatch(toggleOrientation());
+    dispatch(toggleOrientation());
   };
 
   return (
@@ -27,7 +30,7 @@ const ToggleOrientation = () => {
       <Tooltip title="Change the orientation of gallery pictures">
         <ToggleButtonGroup
           color="primary"
-          //value={orientation}
+          value={orientation}
           exclusive
           onChange={handleToggle}
           aria-label="Change the orientation of gallery pictures."
