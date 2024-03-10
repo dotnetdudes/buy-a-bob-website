@@ -2,6 +2,10 @@ import GalleryItem from "./GalleryItem";
 import Grid from "@mui/material/Grid";
 import ToggleOrientation from "../ToggleOrientation";
 import GridItem from "../../../components/GridItem";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "../../products/slice";
+import { selectProductState } from "../../products/slice/selectors";
+import { useEffect } from "react";
 
 const itemData = [
   {
@@ -93,11 +97,18 @@ const Gallery = () => {
 };
 
 function FullGallery() {
+  const dispatch = useDispatch();
+  const { items, selectedItem, loading, error } = useSelector(selectProductState);
+  
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }
+  , [dispatch]);
+
   return (
     <Grid container>
       <Grid item xs={12} sx={{ mb: 2 }}>
         <GridItem>
-          
           <ToggleOrientation />
         </GridItem>
       </Grid>
