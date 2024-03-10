@@ -8,8 +8,11 @@ import IconButton from '@mui/material/IconButton';
 // import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import PersonAdd from '@mui/icons-material/PersonAdd';
+import HistoryIcon from '@mui/icons-material/History';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
+import LoginIcon from '@mui/icons-material/Login';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import { useState } from 'react';
 
@@ -60,7 +63,7 @@ const UserIcon = () => {
               display: 'block',
               position: 'absolute',
               top: 0,
-              right: 14,
+              right: 20,
               width: 10,
               height: 10,
               bgcolor: 'background.paper',
@@ -73,23 +76,20 @@ const UserIcon = () => {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <MenuItem onClick={handleClose}>
-          <Avatar /> Profile
+          <Avatar /> My account
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Avatar /> My account
+          <Avatar><HistoryIcon /></Avatar>My order history
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Avatar><HowToRegIcon /></Avatar>Sign up
         </MenuItem>
         <Divider />
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
-            <PersonAdd fontSize="small" />
+            <LoginIcon fontSize="small" />
           </ListItemIcon>
-          Add another account
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-          Settings
+          Login
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
