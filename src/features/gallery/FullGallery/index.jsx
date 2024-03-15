@@ -1,4 +1,3 @@
-import GalleryItem from "./GalleryItem";
 import Grid from "@mui/material/Grid";
 import ToggleOrientation from "../ToggleOrientation";
 import GridItem from "../../../components/GridItem";
@@ -6,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../products/slice";
 import { selectProductState } from "../../products/slice/selectors";
 import { useEffect } from "react";
+import Gallery from "./Gallery";
 
 const itemData = [
   {
@@ -81,21 +81,6 @@ const itemData = [
   },
 ];
 
-const Gallery = () => {
-  return (
-    <div className="gallery">
-      {itemData.map((item) => (
-        <GalleryItem
-          key={item.img}
-          image={item.img}
-          title={item.title}
-          description={item.author}
-        />
-      ))}
-    </div>
-  );
-};
-
 function FullGallery() {
   const dispatch = useDispatch();
   const { items, selectedItem, loading, error } = useSelector(selectProductState);
@@ -113,7 +98,7 @@ function FullGallery() {
         </GridItem>
       </Grid>
       <Grid item xs={12}>
-        <Gallery />
+        <Gallery itemData={itemData} />
       </Grid>
     </Grid>
   );

@@ -3,6 +3,7 @@ import Layout from "./layouts/Main";
 import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
 import DetailPage from "./features/gallery/DetailPage";
+import Admin from "./pages/Admin";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,7 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/gallery", element: <Gallery /> },
       { path: "/gallery/:id", element: <DetailPage /> },
+      { path: "/admin", element: <Admin /> },
     ],
   },
 ]);

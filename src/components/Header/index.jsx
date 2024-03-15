@@ -8,6 +8,7 @@ import ThemeSwitch from "../ThemeSwitch";
 import CartIcon from "../../features/cart/components/CartIcon";
 import UserIcon from "../UserIcon";
 import GalleryIcon from "../GalleryIcon";
+import AdminIcon from "../AdminIcon";
 
 const LogoLink = styled(Link)({
   display: "flex",
@@ -35,6 +36,7 @@ const Header = () => {
         <LogoLink component={RouterLink} to="/">
           <LogoImg src={Logo} alt="Buy a Bob logo" />
         </LogoLink>
+        <AdminIcon />
         <GalleryIcon />
         <UserIcon />
         <CartIcon />

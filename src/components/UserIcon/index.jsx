@@ -30,6 +30,7 @@ const UserIcon = () => {
 
   const handleLogout = async (event) => {
     event.preventDefault();
+    // console.log(keycloak.token);
     await keycloak.logout();
   };
   return (

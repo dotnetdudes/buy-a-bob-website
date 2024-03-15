@@ -18,7 +18,7 @@ const GalleryIcon = () => {
         onClick={ShowGallery}
         value="dark"
       >
-        <CollectionsIcon fontSize="small" />
+        <CollectionsIcon fontSize="medium" />
       </IconButton>
     </Tooltip>
   );

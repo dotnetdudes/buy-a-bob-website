@@ -1,0 +1,49 @@
+{
+  "images": [
+    {
+      "title": "Artwork",
+      "url": "/images/easel.png",
+      "link": "/"
+    },
+    {
+      "title": "Orders",
+      "url": "/images/waiter.png",
+      "link": "/"
+    },
+    {
+      "title": "Categories",
+      "url": "/images/cabinet.png",
+      "link": "/"
+    },
+    {
+      "title": "Customers",
+      "url": "/images/customers.png",
+      "link": "/"
+    },
+    {
+      "title": "Tags",
+      "url": "/images/tags.png",
+      "link": "/"
+    },
+    {
+      "title": "Shipping Types",
+      "url": "/images/shipping.png",
+      "link": "/"
+    },
+    {
+      "title": "Statuses",
+      "url": "/images/status.svg",
+      "link": "/"
+    },
+    {
+      "title": "Shopping Carts",
+      "url": "/images/cart.png",
+      "link": "/"
+    },
+    {
+      "title": "Addresses",
+      "url": "/images/address.png",
+      "link": "/"
+    }
+  ]
+}

@@ -40,7 +40,7 @@ const Home = () => {
             title="Membership"
             imgUrl="https://source.unsplash.com/random"
             imgAlt="Random image"
-            description="You don't have to sign up to order but there are benefits to this community!"
+            description="You don't have to sign up to order but there are benefits to joining this community!"
             action="Learn More"
           />
         </GridItemCenter>

@@ -11,6 +11,9 @@ const create = () => {
     },
   });
 
+  /* Anti Forgery Token */
+  const fetchAntiForgeryToken = () => api.get('/api/antiforgery/token');
+
   /* Address */
   const fetchAddresses = () => api.get('/address');
   const fetchAddress = (id) => api.get(`/address/${id}`);
@@ -103,6 +106,7 @@ const create = () => {
   const deleteTag = (id) => api.delete(`/tags/${id}`);
 
   return {
+    fetchAntiForgeryToken,
     fetchAddresses,
     fetchAddress,
     createAddress,
