@@ -23,7 +23,7 @@
     {
       "title": "Tags",
       "url": "/images/tags.png",
-      "link": "/"
+      "link": "/admin/tag"
     },
     {
       "title": "Shipping Types",
@@ -33,7 +33,7 @@
     {
       "title": "Statuses",
       "url": "/images/status.svg",
-      "link": "/"
+      "link": "/admin/status"
     },
     {
       "title": "Shopping Carts",

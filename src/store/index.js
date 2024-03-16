@@ -5,6 +5,8 @@ import authReducer from '../features/auth/slice'
 import productReducer from '../features/products/slice'
 import galleryReducer from '../features/gallery/slice'
 import addressReducer from '../features/addresses/slice'
+import tagReducer from '../features/tags/slice'
+import statusReducer from '../features/status/slice'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from './rootSaga'
 
@@ -18,6 +20,8 @@ export const store = configureStore({
     products: productReducer,
     gallery: galleryReducer,
     address: addressReducer,
+    tags: tagReducer,
+    status: statusReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
 })
