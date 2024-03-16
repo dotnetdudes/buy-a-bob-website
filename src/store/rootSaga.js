@@ -1,10 +1,11 @@
 import { all, spawn, call } from "redux-saga/effects";
 import productsSaga from "../features/products/slice/saga";
+import addressesSaga from "../features/addresses/slice/saga";
 
 function* rootSaga() {
   const sagas = [
     productsSaga,
-    //saga2,
+    addressesSaga,
     //saga3,
   ];
 

@@ -1,6 +1,6 @@
 // import { useParams } from "react-router-dom";
 import Grid from "@mui/material/Grid";
-import GridItem from "../../../components/GridItem";
+import GridItem from "../../../../components/GridItem";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";

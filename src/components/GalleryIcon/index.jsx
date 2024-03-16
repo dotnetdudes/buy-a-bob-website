@@ -17,6 +17,7 @@ const GalleryIcon = () => {
         size="small"
         onClick={ShowGallery}
         value="dark"
+        sx={{ ml: 1 }}
       >
         <CollectionsIcon fontSize="medium" />
       </IconButton>

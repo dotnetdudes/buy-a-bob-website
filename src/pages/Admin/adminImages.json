@@ -3,7 +3,7 @@
     {
       "title": "Artwork",
       "url": "/images/easel.png",
-      "link": "/"
+      "link": "/admin/gallery"
     },
     {
       "title": "Orders",
@@ -43,7 +43,7 @@
     {
       "title": "Addresses",
       "url": "/images/address.png",
-      "link": "/"
+      "link": "/admin/address"
     }
   ]
 }

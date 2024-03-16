@@ -1,4 +1,4 @@
-import FullGallery from "../../features/gallery/FullGallery";
+import FullGallery from "../../features/gallery/components/FullGallery";
 import Grid from "@mui/material/Grid";
 
 const Gallery = () => {

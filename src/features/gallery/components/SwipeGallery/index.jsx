@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
-import { selectItem } from "../slice";
+import { selectItem } from "../../slice";
 import { useDispatch } from "react-redux";
 
 export default function SwipeGallery() {

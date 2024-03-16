@@ -4,6 +4,7 @@ import cartReducer from '../features/cart/slice'
 import authReducer from '../features/auth/slice'
 import productReducer from '../features/products/slice'
 import galleryReducer from '../features/gallery/slice'
+import addressReducer from '../features/addresses/slice'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from './rootSaga'
 
@@ -16,6 +17,7 @@ export const store = configureStore({
     auth: authReducer,
     products: productReducer,
     gallery: galleryReducer,
+    address: addressReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
 })

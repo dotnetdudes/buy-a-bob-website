@@ -1,39 +1,39 @@
 class Product {
     constructor() {
-        this.Id = 0;
-        this.Name = '';
-        this.Price = 0;
-        this.Description = '';
-        this.ImageUrl = '';
-        this.Weight = 0;
-        this.Width = 0;
-        this.Depth = 0;
-        this.Height = 0;
-        this.Quantity = 0;
-        this.Created = new Date();
-        this.Updated = null;
-        this.IsSold = false;
-        this.SoldDate = null;
-        this.Deleted = null;
+        this.id = 0;
+        this.name = '';
+        this.price = 0;
+        this.description = '';
+        this.imageUrl = '';
+        this.weight = 0;
+        this.width = 0;
+        this.depth = 0;
+        this.height = 0;
+        this.quantity = 0;
+        this.created = new Date();
+        this.updated = null;
+        this.isSold = false;
+        this.soldDate = null;
+        this.deleted = null;
     }
 
     static fromJson(json) {
         const product = new Product();
-        product.Id = json.id;
-        product.Name = json.name;
-        product.Price = json.price;
-        product.Description = json.description;
-        product.ImageUrl = json.imageUrl;
-        product.Weight = json.weight;
-        product.Width = json.width;
-        product.Depth = json.depth;
-        product.Height = json.height;
-        product.Quantity = json.quantity;
-        product.Created = json.created;
-        product.Updated = json.updated;
-        product.IsSold = json.isSold;
-        product.SoldDate = json.soldDate;
-        product.Deleted = json.deleted;
+        product.id = json.id;
+        product.name = json.name;
+        product.price = json.price;
+        product.description = json.description;
+        product.imageUrl = json.imageUrl;
+        product.weight = json.weight;
+        product.width = json.width;
+        product.depth = json.depth;
+        product.height = json.height;
+        product.quantity = json.quantity;
+        product.created = json.created;
+        product.updated = json.updated;
+        product.isSold = json.isSold;
+        product.soldDate = json.soldDate;
+        product.deleted = json.deleted;
         return product;
     }
 

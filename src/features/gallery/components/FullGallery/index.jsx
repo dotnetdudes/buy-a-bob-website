@@ -1,9 +1,9 @@
 import Grid from "@mui/material/Grid";
 import ToggleOrientation from "../ToggleOrientation";
-import GridItem from "../../../components/GridItem";
+import GridItem from "../../../../components/GridItem";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts } from "../../products/slice";
-import { selectProductState } from "../../products/slice/selectors";
+import { fetchProducts } from "../../../products/slice";
+import { selectProductState } from "../../../products/slice/selectors";
 import { useEffect } from "react";
 import Gallery from "./Gallery";
 

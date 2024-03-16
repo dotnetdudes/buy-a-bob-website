@@ -28,6 +28,7 @@ const ThemeSwitch = () => {
             size="small"
             onClick={handleThemeChange}
             value="dark"
+            sx={{ ml: 1 }}
           >
             <Brightness4Icon fontSize="small" />
           </IconButton>
