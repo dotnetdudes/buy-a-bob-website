@@ -9,6 +9,9 @@ import GalleryNew from "./features/gallery/admin/GalleryNew";
 import AddressMain from "./features/addresses/admin/AddressMain/AddressMain";
 import TagMain from "./features/tags/admin/TagMain/TagMain";
 import StatusMain from "./features/status/admin/StatusMain";
+import CategoryMain from "./features/categories/admin/CategoryMain";
+import ShippingTypeMain from "./features/shippingtypes/admin/ShippingTypeMain/ShippingTypeMain";
+import CartsMain from "./features/carts/admin/CartsMain/CartsMain";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +27,9 @@ const router = createBrowserRouter([
       { path: "admin/address", element: <AddressMain />},
       { path: "admin/tag", element: <TagMain />},
       { path: "admin/status", element: <StatusMain />},
+      { path: "admin/category", element: <CategoryMain />},
+      { path: "admin/shipping", element: <ShippingTypeMain />},
+      { path: "admin/carts", element: <CartsMain />},
     ],
   },
 ]);

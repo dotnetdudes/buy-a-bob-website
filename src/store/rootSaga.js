@@ -3,6 +3,9 @@ import productsSaga from "../features/products/slice/saga";
 import addressesSaga from "../features/addresses/slice/saga";
 import tagSaga from "../features/tags/slice/saga";
 import statusSaga from "../features/status/slice/saga";
+import categoriesSaga from "../features/categories/slice/saga";
+import shippingTypesSaga from "../features/shippingtypes/slice/saga";
+import cartsSaga from "../features/carts/slice/saga";
 
 function* rootSaga() {
   const sagas = [
@@ -10,6 +13,9 @@ function* rootSaga() {
     addressesSaga,
     tagSaga,
     statusSaga,
+    categoriesSaga,
+    shippingTypesSaga,
+    cartsSaga,
   ];
 
   yield all(

@@ -22,11 +22,11 @@ const create = () => {
   const deleteAddress = (id) => api.delete(`/address/${id}`);
 
   /* Cart */
-  const fetchCarts = () => api.get('/carts');
-  const fetchCart = (id) => api.get(`/carts/${id}`);
-  const createCart = (cart) => api.post('/carts', cart);
-  const updateCart = (cart) => api.put(`/carts/${cart.id}`, cart);
-  const deleteCart = (id) => api.delete(`/carts/${id}`);
+  const fetchCarts = () => api.get('/cart');
+  const fetchCart = (id) => api.get(`/cart/${id}`);
+  const createCart = (cart) => api.post('/cart', cart);
+  const updateCart = (cart) => api.put(`/cart/${cart.id}`, cart);
+  const deleteCart = (id) => api.delete(`/cart/${id}`);
 
   /* Cart Item */
   const fetchCartItems = () => api.get('/cartitem');

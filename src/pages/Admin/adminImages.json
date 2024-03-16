@@ -13,7 +13,7 @@
     {
       "title": "Categories",
       "url": "/images/cabinet.png",
-      "link": "/"
+      "link": "/admin/category"
     },
     {
       "title": "Customers",
@@ -28,7 +28,7 @@
     {
       "title": "Shipping Types",
       "url": "/images/shipping.png",
-      "link": "/"
+      "link": "/admin/shipping"
     },
     {
       "title": "Statuses",
@@ -38,7 +38,7 @@
     {
       "title": "Shopping Carts",
       "url": "/images/cart.png",
-      "link": "/"
+      "link": "/admin/carts"
     },
     {
       "title": "Addresses",

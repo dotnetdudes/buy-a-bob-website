@@ -7,6 +7,9 @@ import galleryReducer from '../features/gallery/slice'
 import addressReducer from '../features/addresses/slice'
 import tagReducer from '../features/tags/slice'
 import statusReducer from '../features/status/slice'
+import categoriesReducer from '../features/categories/slice'
+import shippingTypesReducer from '../features/shippingtypes/slice'
+import cartsReducer from '../features/carts/slice'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from './rootSaga'
 
@@ -22,6 +25,9 @@ export const store = configureStore({
     address: addressReducer,
     tags: tagReducer,
     status: statusReducer,
+    categories: categoriesReducer,
+    shippingTypes: shippingTypesReducer,
+    carts: cartsReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
 })
