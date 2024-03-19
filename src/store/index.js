@@ -10,6 +10,7 @@ import statusReducer from '../features/status/slice'
 import categoriesReducer from '../features/categories/slice'
 import shippingTypesReducer from '../features/shippingtypes/slice'
 import cartsReducer from '../features/carts/slice'
+import antiforgeryReducer from '../features/antiforgery/slice'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from './rootSaga'
 
@@ -17,6 +18,7 @@ const sagaMiddleware = createSagaMiddleware()
 
 export const store = configureStore({
   reducer: {
+    antiforgery: antiforgeryReducer,
     theme: themeReducer,
     cart: cartReducer,
     auth: authReducer,

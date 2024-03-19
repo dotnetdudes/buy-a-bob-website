@@ -5,6 +5,7 @@ const create = () => {
     baseURL: import.meta.env.VITE_DUDES_API,
     // 10 second timeout...
     timeout: 10000,
+    withCredentials: true,
     headers: {
       Accept: 'application/json',
       'Content-type': 'application/json; charset=UTF-8',
@@ -12,7 +13,7 @@ const create = () => {
   });
 
   /* Anti Forgery Token */
-  const fetchAntiForgeryToken = () => api.get('/api/antiforgery/token');
+  const fetchAntiForgeryToken = () => api.get('/antiforgery/token');
 
   /* Address */
   const fetchAddresses = () => api.get('/address');

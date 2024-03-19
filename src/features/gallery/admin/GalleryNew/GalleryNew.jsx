@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
@@ -5,15 +6,25 @@ import Product from "../../../../services/dudesApi/classes/Product";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
+import { useDispatch } from "react-redux";
+import { fetchToken } from "../../../antiforgery/slice";
+import { addProduct } from "../../../products/slice";
 
 const GalleryNew = () => {
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState(new Product());
+
+  useEffect(() => {
+    console.log("Fetching token");
+    dispatch(fetchToken());
+  }, [dispatch]);
 
   // Handler function for form submission
   const handleSubmit = (event) => {
     event.preventDefault();
     // Your logic to handle form submission
     console.log(formData);
+    // dispatch(addProduct(formData));
   };
 
   // Handler function for form field changes
