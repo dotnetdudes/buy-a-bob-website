@@ -5,6 +5,7 @@ import { fetchCategories, fetchCategoriesFailure, fetchCategoriesSuccess } from 
 function* fetchAllCategories() {
     try {
         const API = dudesApi.getInstance().api;
+        API.setHeader("Content-Type", "application/json");
         for (let i = 0; i < 5; i++) {
         try {
             const response = yield call(API.fetchCategories);

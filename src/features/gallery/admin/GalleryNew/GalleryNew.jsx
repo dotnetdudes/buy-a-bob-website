@@ -15,16 +15,23 @@ const GalleryNew = () => {
   const [formData, setFormData] = useState(new Product());
 
   useEffect(() => {
-    console.log("Fetching token");
     dispatch(fetchToken());
   }, [dispatch]);
 
   // Handler function for form submission
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Your logic to handle form submission
-    console.log(formData);
-    // dispatch(addProduct(formData));
+    const artwork = event.target.imageUrl.files[0];
+    // // create form data
+    const postData = new FormData();
+    // iterate formData object
+    for (const prop in formData) {
+      postData.append(prop, formData[prop]);
+    }
+    // attach file
+    postData.append("file", artwork, artwork.name);
+    
+    dispatch(addProduct(postData));
   };
 
   // Handler function for form field changes
@@ -72,11 +79,8 @@ const GalleryNew = () => {
             <fieldset>
                 <legend>Upload Image</legend>
             <TextField
-              // label="Image URL"
               name="imageUrl"
               type="file"
-              //value={formData.imageUrl}
-              //onChange={handleChange}
               required
               fullWidth
               margin="normal"

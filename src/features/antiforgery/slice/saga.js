@@ -5,12 +5,10 @@ import KeycloakApiManager from "../../../services/keycloak";
 
 function* fetchAntiForgeryToken() {
   try {
-    console.log("Fetching token in sga");
     const API = dudesApi.getInstance().api;
     const keycloak = KeycloakApiManager.getInstance().keycloak;
+    // eslint-disable-next-line no-unused-vars
     const authToken = yield call(keycloak.updateToken);
-    console.log("Fetching token in sga");
-    console.log(authToken);
     API.setHeader("Authorization", `Bearer ${keycloak.token}`);
     for (let i = 0; i < 5; i++) {
       try {
@@ -26,12 +24,12 @@ function* fetchAntiForgeryToken() {
         }
       } catch (e) {
         console.log(e);
-        yield put(fetchTokenFailure(e));
+        yield put(fetchTokenFailure(e.message));
       }
     }
   } catch (e) {
     console.log(e);
-    // yield put(fetchTokenFailure(e));
+    yield put(fetchTokenFailure(e.message));
   }
 }
 

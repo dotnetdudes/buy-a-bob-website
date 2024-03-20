@@ -8,7 +8,7 @@ const create = () => {
     withCredentials: true,
     headers: {
       Accept: 'application/json',
-      'Content-type': 'application/json; charset=UTF-8',
+      // 'Content-type': 'application/json; charset=UTF-8',
     },
   });
 

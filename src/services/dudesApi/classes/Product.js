@@ -1,3 +1,8 @@
+// var utc = require('dayjs/plugin/utc')
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+dayjs.extend(utc)
+
 class Product {
     constructor() {
         this.id = 0;
@@ -10,7 +15,7 @@ class Product {
         this.depth = 0;
         this.height = 0;
         this.quantity = 0;
-        this.created = new Date();
+        this.created = dayjs.utc().format();
         this.updated = null;
         this.isSold = false;
         this.soldDate = null;

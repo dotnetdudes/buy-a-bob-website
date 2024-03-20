@@ -13,11 +13,12 @@ import {
 } from ".";
 import { selectSelectedItem } from "./selectors";
 import { selectToken } from "../../antiforgery/slice/selectors";
-import keycloak from "../../../services/keycloak";
+import KeycloakApiManager from "../../../services/keycloak";
 
 function* fetchAllProducts() {
   try {
     const API = dudesApi.getInstance().api;
+    API.setHeader("Content-Type", "application/json");
     for (let i = 0; i < 5; i++) {
       try {
         const response = yield call(API.fetchProducts);
@@ -43,6 +44,7 @@ function* fetchSingleProduct() {
   if (selectedItem) {
     try {
       const API = dudesApi.getInstance().api;
+      API.setHeader("Content-Type", "application/json");
       for (let i = 0; i < 5; i++) {
         try {
           const response = yield call(API.fetchProduct, selectedItem.id);
@@ -66,32 +68,30 @@ function* fetchSingleProduct() {
   }
 }
 
-function* addNewProduct(action) {
+function* addNewProduct(e, action) {
   try {
     const API = dudesApi.getInstance().api;
+    const keycloak = KeycloakApiManager.getInstance().keycloak;
     const antiforgeryToken = yield select(selectToken);
+    // eslint-disable-next-line no-unused-vars
     const authToken = yield call(keycloak.updateToken);
-    API.setHeader("Authorization", `Bearer ${authToken}`);
+    API.setHeader("Authorization", `Bearer ${keycloak.token}`);
     API.setHeader("Content-Type", "multipart/form-data");
-    API.setHeader("Accept", "application/json");
-    API.setHeader("X-XRSF-TOKEN", antiforgeryToken);
+    API.setHeader("X-XSRF-TOKEN", antiforgeryToken);
     for (let i = 0; i < 5; i++) {
       try {
         const response = yield call(API.createProduct, action.payload);
         if (response.ok) {
           yield put(addProductSuccess(response.data));
-          API.setHeader("Content-Type", "application/json");
           break;
         } else if (i >= 4) {
           yield put(addProductFailure(response.problem));
-          API.setHeader("Content-Type", "application/json");
           break;
         } else {
           yield delay(1000);
         }
       } catch (e) {
         yield put(addProductFailure(e.message));
-        API.setHeader("Content-Type", "application/json");
       }
     }
   } catch (e) {
@@ -99,11 +99,11 @@ function* addNewProduct(action) {
   }
 }
 
-function* productsSaga() {
+function* productsSaga(payload) {
   yield all([
     yield takeLatest(fetchProducts.type, fetchAllProducts),
     yield takeLatest(fetchProduct.type, fetchSingleProduct),
-    yield takeEvery(addProduct.type, addNewProduct),
+    yield takeEvery(addProduct.type, addNewProduct, payload),
   ]);
 }
 
