@@ -161,7 +161,7 @@ const GalleryMain = () => {
         </Button>
       </Grid>
       <Grid item xs={12}>
-        <div style={{ height: 450, width: "100%" }}>
+        <div style={{ height: 550, width: "100%" }}>
           <DataGrid
             rows={items}
             columns={columns}

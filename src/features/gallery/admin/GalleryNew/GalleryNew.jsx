@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import ButtonGroup from "@mui/material/ButtonGroup";
-import BackButton from "../../../../components/BackButton";
+import { Link } from "react-router-dom";
+import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import LoadingButton from "@mui/lab/LoadingButton";
 import SaveIcon from "@mui/icons-material/Save";
 import { useState } from "react";
 import Product from "../../../../services/dudesApi/classes/Product";
-import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import { useDispatch } from "react-redux";
@@ -36,8 +36,11 @@ const GalleryNew = () => {
     }
     // attach file
     postData.append("file", artwork, artwork.name);
-
+    // dispatch action
     dispatch(addProduct(postData));
+    // reset form
+    setFormData(new Product());
+    event.target.reset();
   };
 
   // Handler function for form field changes
@@ -152,7 +155,14 @@ const GalleryNew = () => {
             >
               <span>Save</span>
             </LoadingButton>
-            <BackButton />
+            <Button
+              type="submit"
+              color="primary"
+              component={Link}
+              to="/admin/gallery"
+            >
+              Back
+            </Button>
           </ButtonGroup>
         </form>
       </Grid>

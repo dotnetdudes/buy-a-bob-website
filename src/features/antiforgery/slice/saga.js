@@ -14,7 +14,6 @@ function* fetchAntiForgeryToken() {
       try {
         const response = yield call(API.fetchAntiForgeryToken);
         if (response.ok) {
-          console.log(response.data);
           yield put(fetchTokenSuccess(response.data));
           break;
         } else if (i >= 4) {
