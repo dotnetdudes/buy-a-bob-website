@@ -5,12 +5,18 @@ import {
   fetchProducts,
   fetchProductsFailure,
   fetchProductsSuccess,
+  fetchActiveProducts,
+  fetchActiveProductsSuccess,
+  fetchActiveProductsFailure,
   fetchProduct,
   fetchProductSuccess,
   fetchProductFailure,
   addProduct,
   addProductSuccess,
   addProductFailure,
+  editProduct,
+  editProductSuccess,
+  editProductFailure,
 } from ".";
 import { selectSelectedItem } from "./selectors";
 import { selectToken } from "../../antiforgery/slice/selectors";
@@ -41,6 +47,34 @@ function* fetchAllProducts() {
   } catch (e) {
     yield put(fetchProductsFailure(e.message));
     yield toast.error("Failed to fetch products");
+  }
+}
+
+function* fetchAllActiveProducts() {
+  try {
+    const API = dudesApi.getInstance().api;
+    API.setHeader("Content-Type", "application/json");
+    for (let i = 0; i < 5; i++) {
+      try {
+        const response = yield call(API.fetchActiveProducts);
+        if (response.ok) {
+          yield put(fetchActiveProductsSuccess(response.data));
+          yield toast.success("Active products fetched successfully");
+          break;
+        } else if (i >= 4) {
+          yield put(fetchActiveProductsFailure(response.problem));
+          yield toast.error("Failed to fetch active products");
+        } else {
+          yield delay(1000);
+        }
+      } catch (e) {
+        yield put(fetchActiveProductsFailure(e.message));
+        yield toast.error("Failed to fetch active products");
+      }
+    }
+  } catch (e) {
+    yield put(fetchActiveProductsFailure(e.message));
+    yield toast.error("Failed to fetch active products");
   }
 }
 
@@ -114,11 +148,51 @@ function* addNewProduct(e, action) {
   }
 }
 
+function* updateProduct(e, action) {
+  try {
+    // console.log(e);
+    console.log(action.payload);
+    const API = dudesApi.getInstance().api;
+    const keycloak = KeycloakApiManager.getInstance().keycloak;
+    // eslint-disable-next-line no-unused-vars
+    const authToken = yield call(keycloak.updateToken);
+    API.setHeader("Authorization", `Bearer ${keycloak.token}`);
+    API.setHeader("Content-Type", "application/json");
+    console.log("updateProduct");
+    
+    for (let i = 0; i < 5; i++) {
+      try {
+        const response = yield call(API.updateProduct, action.payload);
+        if (response.ok) {
+          yield put(editProductSuccess(response.data));
+          yield toast.success("Product updated successfully");
+          break;
+        } else if (i >= 4) {
+          yield put(editProductFailure(response.problem));
+          yield toast.error("Failed to update product");
+          break;
+        } else {
+          yield delay(1000);
+        }
+      } catch (e) {
+        yield put(editProductFailure(e.message));
+        yield toast.error("Failed to update product");
+      }
+    }
+  } catch (err) {
+    // console.log(err);
+    // yield put(editProductFailure(err.message));
+    yield toast.error("Failed to update product");
+  }
+}
+
 function* productsSaga(payload) {
   yield all([
     yield takeLatest(fetchProducts.type, fetchAllProducts),
+    yield takeLatest(fetchActiveProducts.type, fetchAllActiveProducts),
     yield takeLatest(fetchProduct.type, fetchSingleProduct),
     yield takeEvery(addProduct.type, addNewProduct, payload),
+    yield takeEvery(editProduct.type, updateProduct, payload),
   ]);
 }
 

@@ -51,61 +51,61 @@ const DetailPage = () => {
         <GridItem>
           {selectedItem ? (
             <>
-              <Typography variant="h4">{selectedItem.Name}</Typography>
+              <Typography component={'span'} variant="h4">{selectedItem.Name}</Typography>
               <Divider sx={{ mb: 1, mt: 1 }} />
-              <Typography variant="subtitle1">
+              <Typography component={'span'} variant="subtitle1">
                 {selectedItem.Description}
               </Typography>
               <Divider sx={{ mb: 1, mt: 1 }} />
               <Grid container>
                 <Grid item xs={6}>
                   <p>
-                    <Typography variant="subtitle2">Weight:</Typography>
-                    <Typography variant="body2">
+                    <Typography component={'span'} variant="subtitle2">Weight:</Typography>
+                    <Typography component={'span'} variant="body2">
                       {selectedItem.Weight}
                     </Typography>
                   </p>
                   <p>
-                    <Typography variant="subtitle2">Width:</Typography>
-                    <Typography variant="body2">
+                    <Typography component={'span'} variant="subtitle2">Width:</Typography>
+                    <Typography component={'span'} variant="body2">
                       {selectedItem.Width}
                     </Typography>
                   </p>
                   <p>
-                    <Typography variant="subtitle2">Height:</Typography>
-                    <Typography variant="body2">
+                    <Typography component={'span'} variant="subtitle2">Height:</Typography>
+                    <Typography component={'span'} variant="body2">
                       {selectedItem.Height}
                     </Typography>
                   </p>
                 </Grid>
                 <Grid item xs={6}>
                   <p>
-                    <Typography variant="subtitle2">Depth:</Typography>
-                    <Typography variant="body2">
+                    <Typography component={'span'} variant="subtitle2">Depth:</Typography>
+                    <Typography component={'span'} variant="body2">
                       {selectedItem.Depth}
                     </Typography>
                   </p>
                   <p>
-                    <Typography variant="subtitle2">Quantity:</Typography>
-                    <Typography variant="body2">
+                    <Typography component={'span'} variant="subtitle2">Quantity:</Typography>
+                    <Typography component={'span'} variant="body2">
                       {selectedItem.Quantity}
                     </Typography>
                   </p>
                   <p>
-                    <Typography variant="subtitle2">Created:</Typography>
-                    <Typography variant="body2">
+                    <Typography component={'span'} variant="subtitle2">Created:</Typography>
+                    <Typography component={'span'} variant="body2">
                       {selectedItem.Created}
                     </Typography>
                   </p>
                 </Grid>
               </Grid>
               <p>
-                <Typography variant="subtitle2">Price:</Typography>
-                <Typography variant="body2">{selectedItem.Price}</Typography>
+                <Typography component={'span'} variant="subtitle2">Price:</Typography>
+                <Typography component={'span'} variant="body2">{selectedItem.Price}</Typography>
               </p>
             </>
           ) : (
-            <Typography variant="h4">Item not found</Typography>
+            <Typography component={'span'} variant="h4">Item not found</Typography>
           )}
         </GridItem>
       </Grid>
@@ -113,7 +113,7 @@ const DetailPage = () => {
         <GridItem>
           <Grid container>
             <Grid item xs={12}>
-              <Typography variant="h6">
+              <Typography component={'span'} variant="button" gutterBottom>
                 <LocalShippingIcon size="large" />
                 &nbsp; Calculate shipping
               </Typography>
@@ -140,8 +140,8 @@ const DetailPage = () => {
                 Calculate
               </Button>
             </Grid>
-            <Grid item xs={12}>
-              <Typography variant="h6" sx={{ mt: 2 }}>Total: $100</Typography>
+            <Grid item xs={12} container direction={'row'} justifyContent={'flex-end'} alignItems={'flex-end'}>
+              <Typography component={'div'} variant="button" sx={{ mt: 6, mr: 1, width: 'auto', minWidth: 0, display: 'inline-block' }}>Total: $100</Typography>
             </Grid>
             <Grid item xs={12}>
               <Button

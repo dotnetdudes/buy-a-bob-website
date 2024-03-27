@@ -59,6 +59,7 @@ const create = () => {
   
   /* Products */
   const fetchProducts = () => api.get('/products');
+  const fetchActiveProducts = () => api.get('/products/active');
   const fetchProduct = (id) => api.get(`/products/${id}`);
   const createProduct = (product) => api.post('/products', product);
   const updateProduct = (product) => api.put(`/products/${product.id}`, product);
@@ -139,6 +140,7 @@ const create = () => {
     updateOrder,
     deleteOrder,
     fetchProducts,
+    fetchActiveProducts,
     fetchProduct,
     createProduct,
     updateProduct,

@@ -24,6 +24,19 @@ const productsSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
+    fetchActiveProducts(state) {
+      state.loading = true;
+      state.error = null;
+    },
+    fetchActiveProductsSuccess(state, action) {
+      state.items = action.payload;
+      state.loading = false;
+      state.error = null;
+    },
+    fetchActiveProductsFailure(state, action) {
+      state.loading = false;
+      state.error = action.payload;
+    },
     fetchProduct(state) {
       state.loading = true;
       state.error = null;
@@ -54,7 +67,8 @@ const productsSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
-    editProduct(state) {
+    editProduct(state, action) {
+      state.selectedItem = action.payload;
       state.loading = true;
       state.error = null;
     },
@@ -91,6 +105,9 @@ export const {
   fetchProducts,
   fetchProductsSuccess,
   fetchProductsFailure,
+  fetchActiveProducts,
+  fetchActiveProductsSuccess,
+  fetchActiveProductsFailure,
   fetchProduct,
   fetchProductSuccess,
   fetchProductFailure,

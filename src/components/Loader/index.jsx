@@ -6,7 +6,7 @@
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 
-export function Loader() {
+function Loader() {
   return (
     <Box
       sx={{
@@ -20,3 +20,5 @@ export function Loader() {
     </Box>
   );
 }
+
+export default Loader;

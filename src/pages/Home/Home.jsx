@@ -3,8 +3,13 @@ import Grid from "@mui/material/Grid";
 import GridItemCenter from "../../components/GridItemCenter";
 import HomeBob from "../../components/HomeBob";
 import HomeBobBio from "../../components/HomeBobBio";
+import { selectRandomActiveProduct, selectLatestProduct } from "../../features/products/slice/selectors";
+import { useSelector } from "react-redux";
 
 const Home = () => {
+  const featured = useSelector(selectRandomActiveProduct);
+  const latest = useSelector(selectLatestProduct);
+  
   return (
     <Grid container>
       <Grid item xs={12} sx={{ mb: 6 }}>
@@ -14,11 +19,11 @@ const Home = () => {
         <GridItemCenter>
           <HomeBob
             title="Latest"
-            imgUrl="https://source.unsplash.com/random"
+            imgUrl={latest && `${import.meta.env.VITE_IMAGE_SERVER_URL}/${latest.imageUrl}`}
             imgAlt="latest painting"
-            description="The most recent painting to be added to the gallery for sale."
+            description="The most recent painting striaght from the easel to the gallery for sale."
             action="View Details"
-            actionLink="/gallery/1"
+            actionLink={`/gallery/${latest && latest.id}`}
           />
         </GridItemCenter>
       </Grid>
@@ -26,11 +31,11 @@ const Home = () => {
         <GridItemCenter>
           <HomeBob
             title="Featured"
-            imgUrl="https://source.unsplash.com/random"
+            imgUrl={featured && `${import.meta.env.VITE_IMAGE_SERVER_URL}/${featured.imageUrl}`}
             imgAlt="Featured painting"
-            description="Check out the featured painting, definitely worth a second look!"
+            description="Check out the featured painting, we think it's definitely worth a second look!"
             action="View Details"
-            actionLink="/gallery/2"
+            actionLink={`/gallery/${featured && featured.id}`}
           />
         </GridItemCenter>
       </Grid>
@@ -38,8 +43,8 @@ const Home = () => {
         <GridItemCenter>
           <HomeBob
             title="Membership"
-            imgUrl="https://source.unsplash.com/random"
-            imgAlt="Random image"
+            imgUrl="/images/membership.png"
+            imgAlt="Buy a Bob membership"
             description="You don't have to sign up to order but there are benefits to joining this community!"
             action="Learn More"
           />

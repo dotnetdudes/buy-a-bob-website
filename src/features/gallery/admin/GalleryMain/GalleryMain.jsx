@@ -2,18 +2,20 @@ import { DataGrid } from "@mui/x-data-grid";
 import { GridToolbar } from "@mui/x-data-grid";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts } from "../../../products/slice";
+import { fetchProducts, editProduct } from "../../../products/slice";
 import { selectProductState } from "../../../products/slice/selectors";
 import Grid from "@mui/material/Grid";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import Button from "@mui/material/Button";
+import Alert from "@mui/material/Alert";
 import { Link } from "react-router-dom";
-import dayjs from "dayjs";
+import Loader from "../../../../components/Loader";
+import dayjs from "../../../../utils/day";
 
 const GalleryMain = () => {
   const dispatch = useDispatch();
-  const { items, loading, error } =
-    useSelector(selectProductState);
+  const { items, loading, error } = useSelector(selectProductState);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -21,7 +23,8 @@ const GalleryMain = () => {
 
   const handleEditCellChange = (params) => {
     // Your logic to handle cell edits
-    console.log(params);
+    // console.log(params);
+    dispatch(editProduct(params));
     return params;
   };
 
@@ -109,7 +112,8 @@ const GalleryMain = () => {
       width: 180,
       sortable: true,
       type: "date",
-      valueFormatter: (params) => params.value ? dayjs(params.value).format('DD/MM/YYYY') : null,
+      valueFormatter: (params) =>
+        params.value ? dayjs(params.value).format("DD/MM/YYYY") : null,
     },
     {
       field: "updated",
@@ -117,7 +121,8 @@ const GalleryMain = () => {
       width: 180,
       sortable: true,
       type: "date",
-      valueFormatter: (params) => params.value ? dayjs(params.value).format('DD/MM/YYYY') : null,
+      valueFormatter: (params) =>
+        params.value ? dayjs(params.value).format("DD/MM/YYYY") : null,
     },
     {
       field: "isSold",
@@ -134,7 +139,8 @@ const GalleryMain = () => {
       sortable: true,
       editable: true,
       type: "date",
-      valueFormatter: (params) => params.value ? dayjs(params.value).format('DD/MM/YYYY') : null,
+      valueFormatter: (params) =>
+        params.value ? dayjs(params.value).format("DD/MM/YYYY") : null,
     },
     {
       field: "deleted",
@@ -143,13 +149,23 @@ const GalleryMain = () => {
       sortable: true,
       editable: true,
       type: "date",
-      valueFormatter: (params) => params.value ? dayjs(params.value).format('DD/MM/YYYY') : null,
+      valueFormatter: (params) =>
+        params.value ? dayjs(params.value).format("DD/MM/YYYY") : null,
     },
   ];
 
   return (
     <Grid container>
       <Grid item xs={12}>
+        <Button
+          component={Link}
+          variant="contained"
+          startIcon={<AdminPanelSettingsIcon />}
+          sx={{ mb: 2, mr: 2 }}
+          to="/admin"
+        >
+          Back to Dashboard
+        </Button>
         <Button
           component={Link}
           variant="contained"
@@ -180,6 +196,10 @@ const GalleryMain = () => {
             }}
           />
         </div>
+      </Grid>
+      <Grid item xs={12}>
+        {loading && <Loader />}
+        {error && <Alert severity="error" sx={{ mt: 2 }}>{error}</Alert>}
       </Grid>
     </Grid>
   );
