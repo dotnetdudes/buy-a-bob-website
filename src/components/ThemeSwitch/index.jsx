@@ -5,7 +5,7 @@ import { changeTheme } from "../ThemeProvider/slice";
 import { useDispatch, useSelector } from "react-redux";
 import { saveTheme } from "../ThemeProvider/utils";
 import { selectThemeKey } from "../ThemeProvider/slice/selectors";
-// import { useTranslation } from 'react-i18next';
+import Tooltip from "@mui/material/Tooltip";
 
 const ThemeSwitch = () => {
   // const { t } = useTranslation();
@@ -21,28 +21,33 @@ const ThemeSwitch = () => {
   return (
     <>
       {theme === "light" || theme === "system" ? (
-        <IconButton
-          aria-label="Select Dark Theme"
-          color="inherit"
-          size="small"
-          onClick={handleThemeChange}
-          value="dark"
-        >
-          <Brightness4Icon fontSize="small" />
-        </IconButton>
+        <Tooltip title="Select Dark Theme" placement="bottom">
+          <IconButton
+            aria-label="Select Dark Theme"
+            color="inherit"
+            size="small"
+            onClick={handleThemeChange}
+            value="dark"
+            sx={{ ml: 1 }}
+          >
+            <Brightness4Icon fontSize="small" />
+          </IconButton>
+        </Tooltip>
       ) : (
-        <IconButton
-          aria-label="Select Light Theme"
-          color="inherit"
-          size="small"
-          onClick={handleThemeChange}
-          value="light"
-        >
-          <Brightness7Icon fontSize="small" />
-        </IconButton>
+        <Tooltip title="Select Light Theme" placement="bottom">
+          <IconButton
+            aria-label="Select Light Theme"
+            color="inherit"
+            size="small"
+            onClick={handleThemeChange}
+            value="light"
+          >
+            <Brightness7Icon fontSize="small" />
+          </IconButton>
+        </Tooltip>
       )}
     </>
   );
-}
+};
 
 export default ThemeSwitch;

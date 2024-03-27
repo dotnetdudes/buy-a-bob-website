@@ -6,14 +6,18 @@ const keycloak = new Keycloak({
   clientId: import.meta.env.VITE_AUTH_SERVER_CLIENT_ID,
 });
 
-try {
-  const authenticated = await keycloak.init({
-    onLoad: 'check-sso',
-    promiseType: 'native',    
-  });
-  console.log(`User is ${authenticated ? 'authenticated' : 'not authenticated'}`);
-} catch (error) {
-  console.error('Failed to initialize adapter:', error);
+const init = async () => {
+  try {
+    const authenticated = await keycloak.init({
+      onLoad: 'check-sso',
+      promiseType: 'native',    
+    });
+    console.log(`User is ${authenticated ? 'authenticated' : 'not authenticated'}`);
+  } catch (error) {
+    console.error('Failed to initialize adapter:', error);
+  }
 }
+
+init();
 
 export default keycloak;

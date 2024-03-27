@@ -4,6 +4,9 @@ import { Outlet } from "react-router-dom";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import GridItem from "../../components/GridItem";
+import { ToastContainer } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 const Root = styled("div")(({ theme }) => ({
   display: "flex",
@@ -33,6 +36,7 @@ const Layout = () => {
         </Grid>
       </Main>
       <Footer />
+      <ToastContainer position="bottom-center" autoClose={3000} theme="colored" />
     </Root>
   );
 };

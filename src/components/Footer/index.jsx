@@ -1,10 +1,12 @@
+import Typography from "@mui/material/Typography";
+
 const Footer = () => {
     return (
         <footer>
         <div>
-            <p>
-            &copy; {new Date().getFullYear()} <a href="https://www.mui.com">MUI</a>, LLC
-            </p>
+            <Typography vriant="overline">
+            &copy; {new Date().getFullYear()} <a href="https://www.dotnetdudes.com">dotnetdudes</a>
+            </Typography>
         </div>
         </footer>
     );
