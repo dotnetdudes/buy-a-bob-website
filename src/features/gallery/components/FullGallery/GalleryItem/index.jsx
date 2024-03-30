@@ -13,7 +13,7 @@ const GalleryItem = ({ image, title, description }) => {
         <CardMedia
           component="img"
           height="200"
-          image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
+          image={`${import.meta.env.VITE_IMAGE_SERVER_URL}/${image}`}
         />
         <Box
           sx={{
@@ -26,8 +26,8 @@ const GalleryItem = ({ image, title, description }) => {
             padding: "10px",
           }}
         >
-          <Typography variant="h5">Lizard</Typography>
-          <Typography variant="body2">Subtitle</Typography>
+          <Typography variant="h5">{title}</Typography>
+          <Typography variant="body2">{description}</Typography>
         </Box>
       </Box>
     </Card>

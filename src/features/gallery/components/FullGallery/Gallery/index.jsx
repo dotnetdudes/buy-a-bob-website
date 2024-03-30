@@ -5,10 +5,10 @@ const Gallery = ({ itemData }) => {
       <div className="gallery">
         {itemData.map((item) => (
           <GalleryItem
-            key={item.img}
-            image={item.img}
-            title={item.title}
-            description={item.author}
+            key={item.id}
+            image={item.imageUrl}
+            title={item.name}
+            description={item.description}
           />
         ))}
       </div>

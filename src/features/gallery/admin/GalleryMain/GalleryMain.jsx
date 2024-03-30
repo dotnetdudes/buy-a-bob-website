@@ -21,9 +21,17 @@ const GalleryMain = () => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  const handleEditCellChange = (params) => {
-    // Your logic to handle cell edits
-    // console.log(params);
+  const handleEditCellChange = (params, origParams) => {
+    // change the value of the edited cell to utc date time if column is date
+    if (!origParams.deleted && params.deleted) {
+      params.deleted = dayjs(params.deleted).utc().format();
+    }
+    if (!origParams.soldDate && params.soldDate) {
+      params.soldDate = dayjs(params.soldDate).utc().format();
+    }
+    if (origParams.isSold === false && params.isSold === true) {
+      params.soldDate = dayjs().utc().format();
+    }
     dispatch(editProduct(params));
     return params;
   };
@@ -111,18 +119,18 @@ const GalleryMain = () => {
       headerName: "Created",
       width: 180,
       sortable: true,
-      type: "date",
+      type: "dateTime",
       valueFormatter: (params) =>
-        params.value ? dayjs(params.value).format("DD/MM/YYYY") : null,
+        params.value ? dayjs(params.value).format("lll") : null,
     },
     {
       field: "updated",
       headerName: "Updated",
       width: 180,
       sortable: true,
-      type: "date",
+      type: "dateTime",
       valueFormatter: (params) =>
-        params.value ? dayjs(params.value).format("DD/MM/YYYY") : null,
+        params.value ? dayjs(params.value).format("lll") : null,
     },
     {
       field: "isSold",
@@ -138,9 +146,9 @@ const GalleryMain = () => {
       width: 180,
       sortable: true,
       editable: true,
-      type: "date",
+      type: "dateTime",
       valueFormatter: (params) =>
-        params.value ? dayjs(params.value).format("DD/MM/YYYY") : null,
+        params.value ? dayjs(params.value).format("lll") : null,
     },
     {
       field: "deleted",
@@ -148,9 +156,9 @@ const GalleryMain = () => {
       width: 180,
       sortable: true,
       editable: true,
-      type: "date",
+      type: "dateTime",
       valueFormatter: (params) =>
-        params.value ? dayjs(params.value).format("DD/MM/YYYY") : null,
+        params.value ? dayjs(params.value).format("lll") : null,
     },
   ];
 

@@ -98,7 +98,7 @@ function FullGallery() {
         </GridItem>
       </Grid>
       <Grid item xs={12}>
-        <Gallery itemData={itemData} />
+        <Gallery itemData={items} />
       </Grid>
     </Grid>
   );
