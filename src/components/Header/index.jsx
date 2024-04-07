@@ -6,10 +6,10 @@ import { Link as RouterLink } from "react-router-dom";
 import Link from "@mui/material/Link";
 import ThemeSwitch from "../ThemeSwitch";
 import CartIcon from "../../features/cart/components/CartIcon";
-import UserIcon from "../UserIcon";
+import UserIcon from "../../features/auth/components/UserIcon";
 import GalleryIcon from "../GalleryIcon";
 import AdminIcon from "../AdminIcon";
-import AdminAccess from "../AdminAccess";
+import AdminAccess from "../../features/auth/components/AdminAccess";
 
 const HeaderMain = styled("div")({
   display: "flex",

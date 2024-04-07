@@ -12,7 +12,7 @@ import StatusMain from "./features/status/admin/StatusMain";
 import CategoryMain from "./features/categories/admin/CategoryMain";
 import ShippingTypeMain from "./features/shippingtypes/admin/ShippingTypeMain/ShippingTypeMain";
 import CartsMain from "./features/carts/admin/CartsMain/CartsMain";
-import PrivateRoute from "./components/PrivateRoute/";
+import PrivateRoute from "./features/auth/components/PrivateRoute";
 
 const router = createBrowserRouter([
   {

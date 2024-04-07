@@ -1,6 +1,6 @@
-import KeycloakApiManager from "../../services/keycloak";
+import KeycloakApiManager from "../../../../services/keycloak";
 import { useSelector } from "react-redux";
-import { selectIsAuthenticated } from "../../features/auth/slice/selectors";
+import { selectIsAuthenticated } from "../../slice/selectors";
 
 const AdminAccess = ({ component: Component, ...rest }) => {
   const keycloak = KeycloakApiManager.getInstance().keycloak;

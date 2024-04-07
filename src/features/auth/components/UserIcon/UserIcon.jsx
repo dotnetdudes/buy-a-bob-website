@@ -10,10 +10,10 @@ import Logout from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
-import KeycloakApiManager from "../../services/keycloak";
+import KeycloakApiManager from "../../../../services/keycloak";
 import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
-import { loginSuccess, loginFailure } from "../../features/auth/slice";
+import { loginSuccess, loginFailure } from "../../slice";
 
 const UserIcon = () => {
   const dispatch = useDispatch();
