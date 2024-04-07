@@ -8,16 +8,6 @@ export const selectIsAuthenticated = createSelector(
     (auth) => auth.isAuthenticated
 );
 
-export const selectToken = createSelector(
-    selectAuth,
-    (auth) => auth.token
-);
-
-export const selectUser = createSelector(
-    selectAuth,
-    (auth) => auth.user
-);
-
 export const selectLoading = createSelector(
     selectAuth,
     (auth) => auth.loading
@@ -28,21 +18,19 @@ export const selectError = createSelector(
     (auth) => auth.error
 );
 
-export const selectIsAdmin = createSelector(
-    selectUser,
-    (user) => user?.role === 'admin'
+export const selectKeycloak = createSelector(
+    selectAuth,
+    (auth) => auth.keycloak
 );
 
 export const selectAuthState = createSelector(
     selectIsAuthenticated,
-    selectToken,
-    selectUser,
+    selectKeycloak,
     selectLoading,
     selectError,
-    (isAuthenticated, token, user, loading, error) => ({
+    (isAuthenticated, keycloak, loading, error) => ({
         isAuthenticated,
-        token,
-        user,
+        keycloak,
         loading,
         error,
     })

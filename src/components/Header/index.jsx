@@ -9,13 +9,17 @@ import CartIcon from "../../features/cart/components/CartIcon";
 import UserIcon from "../UserIcon";
 import GalleryIcon from "../GalleryIcon";
 import AdminIcon from "../AdminIcon";
+import AdminAccess from "../AdminAccess";
+
+const HeaderMain = styled("div")({
+  display: "flex",
+  flexGrow: 1,
+});
 
 const LogoLink = styled(Link)({
-  display: "flex",
   alignItems: "center",
   textDecoration: "none",
   color: "inherit",
-  flexGrow: 1,
 });
 
 const LogoImg = styled("img")(() => ({
@@ -33,10 +37,12 @@ const Header = () => {
   return (
     <AppBar position="static">
       <Toolbar sx={{ bgcolor: "#171717" }}>
-        <LogoLink component={RouterLink} to="/">
-          <LogoImg src={Logo} alt="Buy a Bob logo" />
-        </LogoLink>
-        <AdminIcon />
+        <HeaderMain>
+          <LogoLink component={RouterLink} to="/">
+            <LogoImg src={Logo} alt="Buy a Bob logo" />
+          </LogoLink>
+        </HeaderMain>
+        <AdminAccess component={AdminIcon} />
         <GalleryIcon />
         <UserIcon />
         <CartIcon />

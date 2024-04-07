@@ -12,6 +12,7 @@ import StatusMain from "./features/status/admin/StatusMain";
 import CategoryMain from "./features/categories/admin/CategoryMain";
 import ShippingTypeMain from "./features/shippingtypes/admin/ShippingTypeMain/ShippingTypeMain";
 import CartsMain from "./features/carts/admin/CartsMain/CartsMain";
+import PrivateRoute from "./components/PrivateRoute/";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "gallery", element: <Gallery /> },
       { path: "gallery/:id", element: <DetailPage /> },
-      { path: "admin", element: <Admin />},
+      { path: "admin", element: <PrivateRoute component={Admin} /> },
       { path: "admin/gallery", element: <GalleryMain />},
       { path: "admin/gallery/new", element: <GalleryNew />},
       { path: "admin/address", element: <AddressMain />},
