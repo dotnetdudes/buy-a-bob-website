@@ -23,7 +23,7 @@ const router = createBrowserRouter([
       { path: "gallery", element: <Gallery /> },
       { path: "gallery/:id", element: <DetailPage /> },
       { path: "admin", element: <PrivateRoute component={Admin} /> },
-      { path: "admin/gallery", element: <GalleryMain />},
+      { path: "admin/gallery", element: <PrivateRoute component={GalleryMain} />},
       { path: "admin/gallery/new", element: <GalleryNew />},
       { path: "admin/address", element: <AddressMain />},
       { path: "admin/tag", element: <TagMain />},

@@ -95,7 +95,7 @@ const GalleryNew = () => {
             />
           </fieldset>
           <TextField
-            label="Weight"
+            label="Weight (g)"
             name="weight"
             type="number"
             value={formData.weight}
@@ -105,7 +105,7 @@ const GalleryNew = () => {
             required
           />
           <TextField
-            label="Width"
+            label="Width (cm)"
             name="width"
             type="number"
             value={formData.width}
@@ -115,7 +115,7 @@ const GalleryNew = () => {
             required
           />
           <TextField
-            label="Depth"
+            label="Depth (cm)"
             name="depth"
             type="number"
             value={formData.depth}
@@ -125,7 +125,7 @@ const GalleryNew = () => {
             required
           />
           <TextField
-            label="Height"
+            label="Height (cm)"
             name="height"
             type="number"
             value={formData.height}
