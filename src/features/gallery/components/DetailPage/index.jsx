@@ -1,47 +1,32 @@
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import GridItem from "../../../../components/GridItem";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import HouseIcon from "@mui/icons-material/House";
-// import { useSelector } from "react-redux";
-// import { selectProductById } from "../../products/slice/selectors";
+import { useSelector } from "react-redux";
+import { selectProductById } from "../../../products/slice/selectors";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
+import dayjs from "../../../../utils/day";
 
 const DetailPage = () => {
-  // const { id } = useParams();
-  // const selectedItem = useSelector(selectProductById(id));
+  const { id } = useParams();
+  console.log(id);
+  const selectedItem = useSelector(selectProductById(id));
+  console.log(selectedItem);
   const handle = useFullScreenHandle();
-
-  const selectedItem = {
-    Id: 1,
-    Name: "Product 1",
-    Price: 100,
-    Description: "Description of the item",
-    ImageUrl: "https://source.unsplash.com/random",
-    Weight: 1,
-    Width: 1,
-    Depth: 1,
-    Height: 1,
-    Quantity: 1,
-    Created: new Date().toUTCString(),
-    Updated: null,
-    IsSold: false,
-    SoldDate: null,
-    Deleted: null,
-  };
 
   return (
     <Grid container>
       <Grid item xs={12} md={4}>
       <FullScreen handle={handle}>
         <img
-          src="https://source.unsplash.com/random"
-          alt="random"
+          src={`${import.meta.env.VITE_IMAGE_SERVER_URL}/${selectedItem.imageUrl}` || "https://via.placeholder.com/300"}
+          alt={selectedItem?.description || "Item"}
           className="detail-image"
           onClick={handle.enter}
         />
@@ -51,57 +36,57 @@ const DetailPage = () => {
         <GridItem>
           {selectedItem ? (
             <>
-              <Typography component={'span'} variant="h4">{selectedItem.Name}</Typography>
+              <Typography component={'span'} variant="h4">{selectedItem.name}</Typography>
               <Divider sx={{ mb: 1, mt: 1 }} />
               <Typography component={'span'} variant="subtitle1">
-                {selectedItem.Description}
+                {selectedItem.description}
               </Typography>
               <Divider sx={{ mb: 1, mt: 1 }} />
               <Grid container>
                 <Grid item xs={6}>
                   <p>
-                    <Typography component={'span'} variant="subtitle2">Weight:</Typography>
+                    <Typography component={'span'} variant="subtitle2">Weight: </Typography>
                     <Typography component={'span'} variant="body2">
-                      {selectedItem.Weight}
+                      {selectedItem.weight} g
                     </Typography>
                   </p>
                   <p>
-                    <Typography component={'span'} variant="subtitle2">Width:</Typography>
+                    <Typography component={'span'} variant="subtitle2">Width: </Typography>
                     <Typography component={'span'} variant="body2">
-                      {selectedItem.Width}
+                      {selectedItem.width} cm
                     </Typography>
                   </p>
                   <p>
-                    <Typography component={'span'} variant="subtitle2">Height:</Typography>
+                    <Typography component={'span'} variant="subtitle2">Height: </Typography>
                     <Typography component={'span'} variant="body2">
-                      {selectedItem.Height}
+                      {selectedItem.height} cm
                     </Typography>
                   </p>
                 </Grid>
                 <Grid item xs={6}>
                   <p>
-                    <Typography component={'span'} variant="subtitle2">Depth:</Typography>
+                    <Typography component={'span'} variant="subtitle2">Depth: </Typography>
                     <Typography component={'span'} variant="body2">
-                      {selectedItem.Depth}
+                      {selectedItem.depth} cm
                     </Typography>
                   </p>
                   <p>
-                    <Typography component={'span'} variant="subtitle2">Quantity:</Typography>
+                    <Typography component={'span'} variant="subtitle2">Quantity: </Typography>
                     <Typography component={'span'} variant="body2">
-                      {selectedItem.Quantity}
+                      {selectedItem.quantity}
                     </Typography>
                   </p>
                   <p>
-                    <Typography component={'span'} variant="subtitle2">Created:</Typography>
+                    <Typography component={'span'} variant="subtitle2">Created: </Typography>
                     <Typography component={'span'} variant="body2">
-                      {selectedItem.Created}
+                      {selectedItem.created ? dayjs(selectedItem.created).format("lll") : ''}
                     </Typography>
                   </p>
                 </Grid>
               </Grid>
               <p>
-                <Typography component={'span'} variant="subtitle2">Price:</Typography>
-                <Typography component={'span'} variant="body2">{selectedItem.Price}</Typography>
+                <Typography component={'span'} variant="subtitle2">Price: </Typography>
+                <Typography component={'span'} variant="body2">${selectedItem.price} AUD</Typography>
               </p>
             </>
           ) : (

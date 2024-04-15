@@ -8,7 +8,7 @@ const Gallery = ({ itemData }) => {
             key={item.id}
             image={item.imageUrl}
             title={item.name}
-            description={item.description}
+            id={item.id}
           />
         ))}
       </div>

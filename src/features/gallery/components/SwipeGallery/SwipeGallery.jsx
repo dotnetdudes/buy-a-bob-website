@@ -20,6 +20,8 @@ export default function SwipeGallery() {
   const { loading, error } = useSelector(selectProductState);
   const items = useSelector(selectActiveProductsByOrientation("landscape"));
 
+  console.log(items);
+
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);

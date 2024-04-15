@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const initialState = {
-    orientation: 'landscape',
+    orientation: 'all',
     selectedItem: null,
 };
 
@@ -9,8 +9,8 @@ const gallerySlice = createSlice({
     name: "gallery",
     initialState,
     reducers: {
-        toggleOrientation(state) {
-            state.orientation = state.orientation === 'landscape' ? 'portrait' : 'landscape';
+        toggleOrientation(state, action) {
+            state.orientation = action.payload;
         },
         selectItem(state, action) {
             state.selectedItem = action.payload;

@@ -1,14 +1,17 @@
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import CardMedia from "@mui/material/CardMedia";
+import { useNavigate} from "react-router-dom";
 
-const GalleryItem = ({ image, title, description }) => {
+const GalleryItem = ({ image, title, id }) => {
+  const navigate = useNavigate();
+  const gotoDetail = (event) => {
+    navigate(`/gallery/${event.currentTarget.dataset.pic}`);
+  }
+
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, cursor: 'pointer' }} onClick={gotoDetail} data-pic={id}>
       <Box sx={{ position: "relative" }}>
         <CardMedia
           component="img"
@@ -23,11 +26,10 @@ const GalleryItem = ({ image, title, description }) => {
             width: "100%",
             bgcolor: "rgba(0, 0, 0, 0.54)",
             color: "white",
-            padding: "10px",
+            padding: "6px",
           }}
         >
-          <Typography variant="h5">{title}</Typography>
-          <Typography variant="body2">{description}</Typography>
+          <Typography variant="subtitle2">{title}</Typography>
         </Box>
       </Box>
     </Card>

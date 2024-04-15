@@ -21,7 +21,7 @@ const Home = () => {
             title="Latest"
             imgUrl={latest && `${import.meta.env.VITE_IMAGE_SERVER_URL}/${latest.imageUrl}`}
             imgAlt="latest painting"
-            description="The most recent painting striaght from the easel to the gallery for sale."
+            description="The most recent painting straight from the easel to the gallery, be first to check it out."
             action="View Details"
             actionLink={`/gallery/${latest && latest.id}`}
           />

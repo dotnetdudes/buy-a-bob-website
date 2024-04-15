@@ -37,7 +37,8 @@ const productsSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
-    fetchProduct(state) {
+    fetchProduct(state, action) {
+      state.selectedItem = action.payload;
       state.loading = true;
       state.error = null;
     },
