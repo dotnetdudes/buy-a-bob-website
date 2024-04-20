@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import Grid from "@mui/material/Grid";
 import GridItem from "../../../../components/GridItem";
 import Button from "@mui/material/Button";
@@ -6,7 +7,10 @@ import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import HouseIcon from "@mui/icons-material/House";
 import { useSelector } from "react-redux";
+import { addItem } from "../../../cart/slice";
 import { selectProductById } from "../../../products/slice/selectors";
+import { getItems } from "../../../cart/slice/selectors";
+import CartItem from "../../../cart/slice/CartItem";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
@@ -14,11 +18,26 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import dayjs from "../../../../utils/day";
 
 const DetailPage = () => {
+  const dispatch = useDispatch();
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
   const selectedItem = useSelector(selectProductById(id));
-  console.log(selectedItem);
+  const cartItems = useSelector(getItems);
+  // console.log(selectedItem);
   const handle = useFullScreenHandle();
+
+  const addToCart = () => {
+    // check if item is already in cart
+    const itemInCart = cartItems.find((item) => item.id === selectedItem.id);
+    if (itemInCart) {
+      // dont add to cart if item is already in cart - show alert
+      alert("Item is already in cart");
+      return;
+    }
+    const newItem = CartItem.fromProduct(selectedItem);
+    console.log(newItem);
+    dispatch(addItem(newItem.toJSON()));
+  }
 
   return (
     <Grid container>
@@ -134,6 +153,7 @@ const DetailPage = () => {
                 color="secondary"
                 sx={{ mt: 4, mb: 2 }}
                 fullWidth
+                onClick={addToCart}
               >
                 Add to Cart
               </Button>

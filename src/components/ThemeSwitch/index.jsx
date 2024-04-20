@@ -28,7 +28,7 @@ const ThemeSwitch = () => {
             size="small"
             onClick={handleThemeChange}
             value="dark"
-            sx={{ ml: 1 }}
+            sx={{ ml: 2 }}
           >
             <Brightness4Icon fontSize="small" />
           </IconButton>
@@ -41,6 +41,7 @@ const ThemeSwitch = () => {
             size="small"
             onClick={handleThemeChange}
             value="light"
+            sx={{ ml: 2 }}
           >
             <Brightness7Icon fontSize="small" />
           </IconButton>

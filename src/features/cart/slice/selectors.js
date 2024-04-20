@@ -29,6 +29,6 @@ export const getCartItems = createSelector(
     );
 
 export const getCartCount = createSelector(
-    getCart,
-    (cart) => cart.length
+    getItems,
+    (items) => items.length
     );
