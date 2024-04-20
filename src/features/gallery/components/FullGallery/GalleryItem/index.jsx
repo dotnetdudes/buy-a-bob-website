@@ -2,16 +2,21 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
 import CardMedia from "@mui/material/CardMedia";
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const GalleryItem = ({ image, title, id }) => {
   const navigate = useNavigate();
+
   const gotoDetail = (event) => {
     navigate(`/gallery/${event.currentTarget.dataset.pic}`);
-  }
+  };
 
   return (
-    <Card sx={{ maxWidth: 345, cursor: 'pointer' }} onClick={gotoDetail} data-pic={id}>
+    <Card
+      sx={{ maxWidth: 345, cursor: "pointer" }}
+      onClick={gotoDetail}
+      data-pic={id}
+    >
       <Box sx={{ position: "relative" }}>
         <CardMedia
           component="img"
